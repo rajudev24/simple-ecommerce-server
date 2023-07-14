@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import catchAsync from "../../../shared/catchAsynce";
 import sendresponse from "../../../shared/sendResponse";
-import { IShoe } from "./shoe.interface";
+import { IReview, IShoe } from "./shoe.interface";
 import httpStatus from "http-status";
 import { ShoeService } from "./shoe.service";
 
@@ -27,8 +27,20 @@ const getAllShoes = catchAsync(async (req: Request, res: Response) => {
     data: result,
   });
 });
+const createReview = catchAsync(async (req: Request, res: Response) => {
+  const { ...reviewData } = req.body;
+  const result = await ShoeService.createReview(reviewData);
+
+  sendresponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "Review added successfully",
+    data: result,
+  });
+});
 
 export const ShoeController = {
   createShoe,
   getAllShoes,
+  createReview,
 };

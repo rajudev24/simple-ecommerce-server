@@ -11,5 +11,6 @@ router.post(
 );
 
 router.get("/allshoes", ShoeController.getAllShoes);
+router.post("/review", ShoeController.createReview);
 
 export const ShoeRoutes = router;
