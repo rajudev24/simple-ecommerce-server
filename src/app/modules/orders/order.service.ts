@@ -23,7 +23,7 @@ const createOrder = async (payload: IOrder): Promise<IOrder> => {
 
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
-      console.error("Error  sending email:", error);
+      console.error("Error sending email:", error);
     } else {
       console.log("Email sent:", info.response);
     }
