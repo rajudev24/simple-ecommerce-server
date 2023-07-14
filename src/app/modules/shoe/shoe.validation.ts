@@ -32,17 +32,6 @@ const createShoeZodSchema = z.object({
   }),
 });
 
-const createReviewZodSchema = z.object({
-  body: z.object({
-    id: z.string({
-      required_error: "Id is required",
-    }),
-    review: z.string({
-      required_error: "review is required",
-    }),
-  }),
-});
 export const ShoeValidation = {
   createShoeZodSchema,
-  createReviewZodSchema,
 };
