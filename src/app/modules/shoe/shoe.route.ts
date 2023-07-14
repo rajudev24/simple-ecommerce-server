@@ -11,6 +11,10 @@ router.post(
 );
 
 router.get("/allshoes", ShoeController.getAllShoes);
-router.post("/review", ShoeController.createReview);
+router.post(
+  "/review",
+  validateRequest(ShoeValidation.createReviewZodSchema),
+  ShoeController.createReview
+);
 
 export const ShoeRoutes = router;
