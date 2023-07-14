@@ -9,4 +9,9 @@ export interface IShoe {
   reviews: [];
 }
 
+export interface IReview {
+  id: string;
+  review: string;
+}
+
 export type ShoeModel = Model<IShoe, object>;
